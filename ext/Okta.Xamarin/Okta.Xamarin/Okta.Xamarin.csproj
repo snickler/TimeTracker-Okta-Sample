@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Company>Okta</Company>
+    <Authors>Okta, Inc.</Authors>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.0-beta01</Version>
+    <PackageTags>okta,token,authentication,authorization</PackageTags>
+    <RepositoryUrl>https://github.com/okta/okta-oidc-xamarin/</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/okta/okta-oidc-xamarin/</PackageProjectUrl>
+    <Copyright>2019 Okta, Inc.</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="OidcClient.cs" />
+    <Compile Remove="OktaConfig.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="OidcClient.cs" />
+    <None Include="OktaConfig.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+  </ItemGroup>
+
+</Project>

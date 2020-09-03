@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="TimeTracker.UWP.Views.WorkItemListPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:TimeTracker.UWP.Core.Models"
+    Style="{StaticResource PageStyle}"
+    xmlns:prismMvvm="using:Prism.Windows.Mvvm"
+    prismMvvm:ViewModelLocator.AutoWireViewModel="True" 
+    mc:Ignorable="d">
+    <Grid x:Name="ContentArea" Margin="{StaticResource MediumLeftRightMargin}">
+        <Grid
+            Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+            <ListView Tapped="{x:Bind ViewModel.OnItemClick}" ItemsSource="{x:Bind ViewModel.WorkItems}">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models:WorkItem">
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource SubheaderTextBlockStyle}" Text="{x:Bind Title}"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Completed: "/>
+                                <TextBlock Text="{x:Bind Completed}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </Grid>
+</Page>
